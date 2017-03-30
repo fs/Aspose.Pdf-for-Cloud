@@ -1,40 +1,43 @@
-## Aspose.Pdf for Cloud
-[Aspose.Pdf for Cloud](https://www.aspose.com/products/pdf/cloud) helps you manipulate elements of a PDF file like text, annotations, watermarks, signatures, bookmarks, stamps and so on. Its REST API also allows you to add images to a PDF file or convert PDF to images as well as managing PDF pages by using features like PDF merging, splitting and inserting.
-
-This repository contains [Data](Data), [Examples](Examples) and [SDKs](SDKs) for [Aspose.Pdf for Cloud](https://www.aspose.com/products/pdf/cloud) to help you learn and write your own applications.
-
-[Data](Data) folder at the root contains input files which both Examples and SDKs (Unit test case project) used. It is mandatory that you download the Data folder.
-
-## Why SDKs?
-Aspose.Pdf for Cloud is implemented as a REST API. If you use SDK, it hides the REST API calls and lets you use Aspose.Pdf features in a native way for your preferred language.
+# Aspose.Pdf Cloud SDK For Ruby
+This SDK lets you use [Aspose Cloud PDF APIs](http://www.aspose.com/cloud/pdf-api.aspx) in your web apps.
 
 <p align="center">
-
-  <a title="Download complete Aspose.Pdf for Cloud source code" href="https://github.com/asposepdf/Aspose_Pdf_Cloud/archive/master.zip">
+  <a title="Download complete Aspose.PDF for Cloud source code" href="https://github.com/asposepdf/Aspose_pdf_Cloud/archive/master.zip">
 	<img src="https://raw.github.com/AsposeExamples/java-examples-dashboard/master/images/downloadZip-Button-Large.png" />
   </a>
 </p>
 
+##How to Use the SDK?
+The complete source code is available in this repository folder, you can either directly use it in your project or use RubyGems. For more details, please visit our [documentation website](http://www.aspose.com/docs/display/pdfcloud/Available+SDKs).
 
+## Usage
+APIs of this SDK can be called as follows:
 
+```ruby
+require 'aspose_pdf_cloud'
 
+class AsposePDFUsage
+  
+  include AsposePDFCloud
+  include AsposeStorageCloud
+	
+  def initialize
+    #Get App key and App SID from https://cloud.aspose.com
+    AsposeApp.app_key_and_sid("APP_KEY", "APP_SID")
+    @pdf_api = PdfApi.new  
+  end
+  
+  def convert_document_to_tiff
+    #Convert document from request content to tiff format.
+    file_name = "Sample.pdf"
+    response = @pdf_api.put_convert_document(File.open("data/" << file_name,"r") { |io| io.read }, {format: "tiff"})
+  end
+  
+end
+```
+## Unit Tests
+Aspose PDF SDK includes a suite of unit tests within the [test](https://github.com/asposepdf/Aspose_Pdf_Cloud/blob/master/SDKs/Aspose.Pdf_Cloud_SDK_for_Ruby/test/pdf_tests.rb) subdirectory. These Unit Tests also serves as examples of how to use the Aspose PDF SDK.
 
-Directory | Description
---------- | -----------
-[.NET SDK](SDKs/Aspose.Pdf-Cloud-SDK-for-.NET)  |  Aspose.Pdf for Cloud .NET SDK
-[Java SDK](SDKs/Aspose.Pdf-Cloud-SDK-for-Java)  |  Aspose.Pdf for Cloud Java SDK
-[PHP SDK](SDKs/Aspose.Pdf-Cloud-SDK-for-PHP)  | Aspose.Pdf for Cloud PHP SDK
-[Ruby SDK](SDKs/Aspose.Pdf-Cloud-SDK-for-Ruby) | Aspose.Pdf for Cloud Ruby SDK
-[Python SDK](SDKs/Aspose.Pdf-Cloud-SDK-for-Python)  | Aspose.Pdf for Cloud Python SDK
-[Node.js SDK](SDKs/Aspose.Pdf-Cloud-SDK-for-NodeJS)  | Aspose.Pdf for Cloud Node.js SDK
-[Android SDK](SDKs/Aspose.Pdf-Cloud-SDK-for-Android)  |  Aspose.Pdf for Cloud Android SDK
-[Objective C SDK](SDKs/Aspose.Pdf-Cloud-SDK-for-Objective-C)  | Aspose.Pdf for Cloud Objective C SDK
-[Perl SDK](SDKs/Aspose.Pdf-Cloud-SDK-for-Perl)  | Aspose.Pdf for Cloud Perl SDK
+##Contact Us
+Your feedback is very important to us. Please feel free to contact us using our [Support Forums](https://www.aspose.com/community/forums/).
 
-## Resources
-
-+ **Website:** [www.aspose.com](http://www.aspose.com)
-+ **Product Home:** [Aspose.Pdf for Cloud](http://www.aspose.com/cloud/pdf-api.aspx)
-+ **Documentation:** [Aspose.Pdf for Cloud Documentation](http://www.aspose.com/docs/display/pdfcloud/Home)
-+ **Forum:** [Aspose.Pdf for Cloud Forum](http://www.aspose.com/community/forums/aspose.pdf-product-family/75/showforum.aspx)
-+ **Blog:** [Aspose.Pdf for Cloud Blog](http://www.aspose.com/blogs/aspose-products/aspose-pdf-product-family.html)
